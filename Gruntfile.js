@@ -9,6 +9,7 @@ module.exports = function (grunt) {
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   // Paths
+
   var yeomanConfig = {
     app: 'app',
     dist: 'dist',
@@ -16,8 +17,8 @@ module.exports = function (grunt) {
     cssDir: 'stylesheets',
     vendor: '<%= yeoman.app %>/vendor',
     assets: {
-      javascripts: '<%= yeoman.app %>/<%= jsDir %>',
-      stylesheets: '<%= yeoman.app %>/<%= cssDir %>',
+      javascripts: 'app/javascripts',
+      stylesheets: 'app/stylesheets',
       images: '<%= yeoman.app %>/images'
     }
   };
@@ -39,7 +40,7 @@ module.exports = function (grunt) {
       },
 
       compass: {
-        files: ['<%= yeoman.assets.stylesheets %>/*.{scss,sass}'],
+        files: ['<%= yeoman.assets.stylesheets %>/**/*.{scss,sass}'],
         tasks: ['compass']
       },
 
@@ -322,5 +323,5 @@ module.exports = function (grunt) {
     'usemin'
   ]);
 
-  grunt.registerTask('default', ['build']);
+  grunt.registerTask('default', ['server']);
 };
